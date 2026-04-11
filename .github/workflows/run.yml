@@ -1,19 +1,20 @@
 name: run
 
-on:
+于:
   workflow_dispatch:
   push:
   schedule:
-    - cron: 10 16 * * *
+    - cron: '10 16 * * *'
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'npm'          # optional but recommended for faster installs
       - run: npm ci
       - run: npm run main
         env:
