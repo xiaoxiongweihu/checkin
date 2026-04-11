@@ -1,6 +1,6 @@
 name: run
 
-于:
+on:
   workflow_dispatch:
   push:
   schedule:
